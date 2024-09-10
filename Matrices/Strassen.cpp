@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 typedef long long lld;
 
@@ -244,8 +245,8 @@ inline lld** Strassen(lld** a, lld** b, int n,
 
 int main()
 {   
-    ifstream inFile("matrices.in");  // Leer desde "matrices.in"
-    ofstream outFile("resultado.out"); // Escribir en "resultado.out"
+    ifstream inFile("matrices.in");  
+    ofstream outFile("resultado.out"); 
 
     if (!inFile.is_open() || !outFile.is_open()) {
         cerr << "Error al abrir el archivo." << endl;
@@ -255,7 +256,7 @@ int main()
     int N;
     inFile >> N;
 
-    // Leer matriz A
+
     lld** matA;
     matA = new lld*[N];
     for (int i = 0; i < N; i++) {
@@ -265,7 +266,7 @@ int main()
         }
     }
 
-    // Leer matriz B
+
     lld** matB;
     matB = new lld*[N];
     for (int i = 0; i < N; i++) {
@@ -275,10 +276,8 @@ int main()
         }
     }
 
-    // Llamar a la función Strassen
     lld** matC = Strassen(matA, matB, N, N, N);
 
-    // Escribir el resultado en el archivo de salida
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             outFile << matC[i][j] << " ";
@@ -286,7 +285,6 @@ int main()
         outFile << endl;
     }
 
-    // Cerrar los archivos
     inFile.close();
     outFile.close();
 
