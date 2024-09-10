@@ -59,7 +59,6 @@ int main() {
         outFile << endl;
     }
 
-    // Cerrar el archivo de salida
     outFile.close();
 
     return 0;
