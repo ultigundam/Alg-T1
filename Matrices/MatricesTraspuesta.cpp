@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <fstream> // Para manejar archivos
+#include <fstream> 
 
 using namespace std;
 
@@ -26,8 +26,8 @@ void Multiplicar(const vector<vector<int>>& A, const vector<vector<int>>& B_T, v
 }
 
 int main() {
-    ifstream inFile("matrices.in"); // Archivo de entrada
-    ofstream outFile("resultado.out"); // Archivo de salida
+    ifstream inFile("matrices.in"); 
+    ofstream outFile("resultado.out"); 
 
     if (!inFile.is_open() || !outFile.is_open()) {
         cerr << "Error al abrir el archivo." << endl;
@@ -42,28 +42,28 @@ int main() {
     vector<vector<int>> B_T(n, vector<int>(n));
     vector<vector<int>> C(n, vector<int>(n));
 
-    // Leer la matriz A desde el archivo
+ 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             inFile >> A[i][j];
         }
     }
 
-    // Leer la matriz B desde el archivo
+
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             inFile >> B[i][j];
         }
     }
 
-    // Cerrar el archivo de entrada
+
     inFile.close();
 
-    // Realizar la transposición y multiplicación de matrices
+  
     TransponerMatriz(B, B_T);
     Multiplicar(A, B_T, C);
 
-    // Escribir el resultado en el archivo de salida
+
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             outFile << C[i][j] << " ";
@@ -71,7 +71,7 @@ int main() {
         outFile << endl;
     }
 
-    // Cerrar el archivo de salida
+   
     outFile.close();
 
     return 0;
